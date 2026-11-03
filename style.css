@@ -1,0 +1,335 @@
+/* ==========================================================================
+   Nigerian News Classifier AI - style.css
+   1. Fonts & colours   2. Page reset   3. Navbar & hero   4. Cards
+   5. Buttons           6. Result       7. Sidebar          8. Footer
+   9. Mobile / tablet
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Icons are inline SVGs drawn by app.py - they scale with the font size */
+.ico { width: 1em; height: 1em; flex: none; vertical-align: -0.125em; }
+.rb-check .ico { stroke-width: 3; }
+
+/* ---------- 1. Colours (change them here) ---------- */
+:root {
+  --navy: #0b1f3f;
+  --navy-dark: #08162e;
+  --blue: #0b6bff;
+  --mint: #5ee6a8;
+  --business: #13875b;
+  --business-soft: #e6f7ef;
+  --politics: #1769e0;
+  --politics-soft: #e8f0fe;
+  --sports: #7b3fc4;
+  --sports-soft: #f1e9fb;
+  --ink: #10223f;
+  --muted: #5b6b82;
+  --line: #e1e8f2;
+  --page: #eef3fa;
+}
+
+/* ---------- 2. Page reset ---------- */
+* { box-sizing: border-box; }
+
+html, body, .stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"] {
+  background: var(--page) !important;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Hide Streamlit's own header, menu and footer */
+header[data-testid="stHeader"],
+[data-testid="stToolbar"],
+[data-testid="stDecoration"],
+#MainMenu,
+footer { display: none !important; }
+
+/* Let our navbar, hero and footer stretch edge to edge */
+[data-testid="stMainBlockContainer"] {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+[data-testid="stMainBlockContainer"] > [data-testid="stVerticalBlock"] { gap: 0; }
+
+/* ---------- 3. Navbar & hero ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px max(24px, calc((100% - 1240px) / 2));
+  background: linear-gradient(180deg, #0d2347, #0a1b38);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.brand { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.brand-logo {
+  flex: none;
+  width: 54px; height: 54px;
+  display: grid; place-items: center;
+  background: #fff; color: var(--navy);
+  border-radius: 10px; font-size: 26px;
+}
+.brand-title { color: #fff; font-weight: 700; font-size: 1.45rem; line-height: 1.15; }
+.brand-sub { color: #cfdcf2; font-size: 0.95rem; margin-top: 3px; }
+
+.nav-links { display: flex; gap: 34px; }
+.nav-links a {
+  display: flex; align-items: center; gap: 9px;
+  padding: 8px 2px;
+  color: #e8efff !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  border-bottom: 2px solid transparent;
+}
+.nav-links a:hover { color: #fff !important; border-bottom-color: rgba(94, 230, 168, 0.5); }
+.nav-links a.active { color: #fff !important; font-weight: 600; border-bottom-color: var(--mint); }
+
+.hero {
+  padding: 64px max(24px, calc((100% - 1240px) / 2)) 56px;
+  background:
+    linear-gradient(90deg, rgba(8, 24, 52, 0.94) 0%, rgba(8, 24, 52, 0.78) 45%, rgba(8, 24, 52, 0.3) 100%),
+    var(--hero-img) center 40% / cover no-repeat;
+}
+.hero-title {
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(2rem, 4.6vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.hero-title .mint { color: var(--mint); }
+.hero p { color: #e3ecfa; font-size: 1.1rem; max-width: 520px; margin: 0; }
+
+/* ---------- 4. Cards ---------- */
+.st-key-main_area {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 28px 24px 44px;
+}
+
+.st-key-card_input,
+.st-key-card_examples,
+.st-key-card_result,
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 6px 22px rgba(16, 34, 63, 0.07);
+  padding: 22px 24px;
+}
+.st-key-card_input, .st-key-card_examples, .st-key-card_result { gap: 0.9rem; }
+
+.card-title {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+.card-sub { color: var(--muted); margin: 0; }
+.st-key-card_examples .card-title { margin-bottom: 6px; }
+.st-key-card_input .card-sub { margin-bottom: 4px; }
+
+/* Text area */
+.st-key-article [data-baseweb="textarea"],
+.st-key-article [data-baseweb="base-input"] {
+  background: #fff;
+  border: 1px solid #cfd9e8;
+  border-radius: 12px;
+}
+.st-key-article [data-baseweb="textarea"]:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(11, 107, 255, 0.15);
+}
+.st-key-article textarea {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink);
+  background: #fff;
+}
+
+/* ---------- 5. Buttons ---------- */
+.st-key-classify, .st-key-clear,
+.st-key-ex_business, .st-key-ex_politics, .st-key-ex_sports { width: 100%; }
+
+.st-key-classify button, .st-key-clear button,
+.st-key-ex_business button, .st-key-ex_politics button, .st-key-ex_sports button {
+  width: 100%;
+  min-height: 48px;           /* easy to tap on phones */
+  border-radius: 10px;
+  font-weight: 700;
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+.st-key-classify button:hover, .st-key-ex_business button:hover,
+.st-key-ex_politics button:hover, .st-key-ex_sports button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+/* Main blue button */
+.st-key-classify button {
+  background: linear-gradient(180deg, #1a7bff, #0a62e8);
+  border: 0;
+  box-shadow: 0 4px 12px rgba(11, 107, 255, 0.3);
+}
+/* Clear button */
+.st-key-clear button { background: #fff; border: 1px solid #cfd9e8; color: var(--navy); }
+.st-key-clear button:hover { border-color: var(--blue); color: var(--blue); }
+
+/* Example buttons (colour = category colour) */
+.st-key-ex_business button { background: linear-gradient(180deg, #19a06f, #0f7a52); border: 0; }
+.st-key-ex_politics button { background: linear-gradient(180deg, #2b7df0, #1257c4); border: 0; }
+.st-key-ex_sports button   { background: linear-gradient(180deg, #8d52d6, #6a31b0); border: 0; }
+
+/* White text/icons on all coloured buttons */
+.st-key-classify button *, .st-key-ex_business button *,
+.st-key-ex_politics button *, .st-key-ex_sports button * { color: #fff !important; }
+
+/* ---------- 6. Prediction result ---------- */
+.result {
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--soft);
+  border: 1px solid var(--edge);
+}
+.cat-business { --accent: var(--business); --soft: var(--business-soft); --edge: #c8ecd9; }
+.cat-politics { --accent: var(--politics); --soft: var(--politics-soft); --edge: #cddcf8; }
+.cat-sports   { --accent: var(--sports);   --soft: var(--sports-soft);   --edge: #e0d0f3; }
+
+.result-head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+.result-banner {
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px 22px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 12px;
+}
+.rb-check {
+  flex: none;
+  width: 56px; height: 56px;
+  display: grid; place-items: center;
+  background: #fff; color: var(--accent);
+  border-radius: 50%; font-size: 26px;
+}
+.rb-text { flex: 1; min-width: 0; }
+.rb-label { font-size: 0.95rem; font-weight: 600; opacity: 0.95; }
+.rb-value { font-size: 2.2rem; font-weight: 800; line-height: 1.15; }
+.rb-cat-icon { font-size: 2.4rem; opacity: 0.85; }
+.result-confidence {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  color: var(--accent);
+}
+.rc-label { color: var(--muted); font-weight: 500; }
+.rc-value { color: var(--ink); font-weight: 800; font-size: 1.35rem; }
+.result-model {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+.result-model .ico { margin-right: 6px; }
+
+/* ---------- 7. Right sidebar ---------- */
+.side-card { margin-bottom: 18px; }
+.side-title { font-size: 1.05rem; margin-bottom: 8px; }
+
+.qi-row { display: flex; align-items: center; gap: 14px; padding: 10px 0; }
+.qi-icon {
+  flex: none;
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  border-radius: 10px; font-size: 22px;
+}
+.qi-icon.business { background: var(--business-soft); color: var(--business); }
+.qi-icon.politics { background: var(--politics-soft); color: var(--politics); }
+.qi-icon.sports   { background: var(--sports-soft);   color: var(--sports); }
+.qi-name { font-weight: 700; }
+.qi-name.business { color: var(--business); }
+.qi-name.politics { color: var(--politics); }
+.qi-name.sports   { color: var(--sports); }
+.qi-desc { color: var(--muted); font-size: 0.9rem; }
+
+.about-card { background: linear-gradient(180deg, #f4f8ff, #eaf1fd); }
+.about-text { color: var(--muted); line-height: 1.6; margin: 0; }
+.about-divider { border: 0; border-top: 1px solid #d5e0f2; margin: 16px 0; }
+.about-quote { color: var(--navy); font-weight: 700; font-style: italic; }
+
+.photo-card {
+  position: relative;
+  display: flex; align-items: flex-end;
+  min-height: 230px;
+  overflow: hidden;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(5, 15, 35, 0) 35%, rgba(5, 15, 35, 0.88) 100%),
+    var(--footer-img) center / cover no-repeat;
+  box-shadow: 0 6px 22px rgba(16, 34, 63, 0.12);
+}
+.photo-text {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 18px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.flag-chip {
+  flex: none;
+  width: 34px; height: 26px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #008751 33%, #fff 33% 66%, #008751 66%);
+}
+
+/* ---------- 8. Footer ---------- */
+.footer {
+  padding: 26px 16px;
+  text-align: center;
+  color: #dbe6f8;
+  font-size: 0.95rem;
+  background: linear-gradient(180deg, var(--navy), var(--navy-dark));
+}
+.footer .sep { margin: 0 14px; opacity: 0.5; }
+
+/* ---------- 9. Tablets & phones ---------- */
+@media (max-width: 900px) {
+  .navbar { flex-direction: column; align-items: flex-start; gap: 12px; padding: 14px 18px; }
+  .brand { gap: 12px; }
+  .brand-logo { width: 44px; height: 44px; font-size: 22px; }
+  .brand-title { font-size: 1.1rem; }
+  .brand-sub { font-size: 0.8rem; }
+
+  /* menu becomes a row of icons with small labels */
+  .nav-links { width: 100%; justify-content: space-between; gap: 6px; }
+  .nav-links a { flex: 1; flex-direction: column; gap: 4px; font-size: 0.8rem; text-align: center; }
+
+  .hero { padding: 40px 18px 36px; }
+  .hero p { font-size: 1rem; }
+
+  .st-key-main_area { padding: 18px 14px 32px; }
+
+  /* stack columns vertically */
+  [data-testid="stHorizontalBlock"] { flex-direction: column !important; gap: 1rem !important; }
+  [data-testid="stColumn"] { width: 100% !important; min-width: 100% !important; flex: 1 1 100% !important; }
+
+  .st-key-card_input, .st-key-card_examples, .st-key-card_result, .card { padding: 18px 16px; }
+  .rb-value { font-size: 1.8rem; }
+  .rb-cat-icon { display: none; }
+}
+
