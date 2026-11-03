@@ -333,3 +333,10 @@ footer { display: none !important; }
   .rb-cat-icon { display: none; }
 }
 
+/* Hide Streamlit Cloud badge */
+[class*="viewerBadge"],
+[class*="_profileContainer_"],
+[class*="_profilePreview_"],
+[class*="_link_gzau3"] {
+  display: none !important;
+}
