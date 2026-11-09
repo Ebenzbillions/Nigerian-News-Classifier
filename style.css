@@ -73,6 +73,13 @@ footer { display: none !important; }
   background: #fff; color: var(--navy);
   border-radius: 10px; font-size: 26px;
 }
+.brand-logo.flag-logo {
+  width: 72px; height: 48px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #008751 33.33%, #fff 33.33% 66.66%, #008751 66.66%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
 .brand-title { color: #fff; font-weight: 700; font-size: 1.45rem; line-height: 1.15; }
 .brand-sub { color: #cfdcf2; font-size: 0.95rem; margin-top: 3px; }
 
@@ -312,6 +319,7 @@ footer { display: none !important; }
   .navbar { flex-direction: column; align-items: flex-start; gap: 12px; padding: 14px 18px; }
   .brand { gap: 12px; }
   .brand-logo { width: 44px; height: 44px; font-size: 22px; }
+  .brand-logo.flag-logo { width: 58px; height: 38px; }
   .brand-title { font-size: 1.1rem; }
   .brand-sub { font-size: 0.8rem; }
 
@@ -331,12 +339,4 @@ footer { display: none !important; }
   .st-key-card_input, .st-key-card_examples, .st-key-card_result, .card { padding: 18px 16px; }
   .rb-value { font-size: 1.8rem; }
   .rb-cat-icon { display: none; }
-}
-
-/* Hide Streamlit Cloud badge */
-[class*="viewerBadge"],
-[class*="_profileContainer_"],
-[class*="_profilePreview_"],
-[class*="_link_gzau3"] {
-  display: none !important;
 }

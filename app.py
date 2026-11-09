@@ -23,10 +23,11 @@ VECTORIZER_PATH = BASE_DIR / "models" / "tfidf_vectorizer.pkl"
 CSS_PATH = BASE_DIR / "style.css"
 HERO_IMAGE = BASE_DIR / "assets" / "hero.png"      # banner at the top
 FOOTER_IMAGE = BASE_DIR / "assets" / "footer.png"  # image card in the sidebar
+FAVICON = BASE_DIR / "assets" / "favicon.png"      # icon in the browser tab
 
 st.set_page_config(
-    page_title="Nigerian News Classifier",
-    page_icon="📰",
+    page_title="Nigerian News Classifier AI",
+    page_icon=FAVICON,
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -175,9 +176,9 @@ def render_navbar_and_hero():
             <div id="top"></div>
             <div class="navbar">
               <div class="brand">
-                <div class="brand-logo">[[newspaper]]</div>
+                <div class="brand-logo flag-logo"></div>
                 <div>
-                  <div class="brand-title">NIGERIAN NEWS CLASSIFIER</div>
+                  <div class="brand-title">NIGERIAN NEWS CLASSIFIER AI</div>
                   <div class="brand-sub">Automatic Classification of News Articles (Politics, Sports, Business)</div>
                 </div>
               </div>
@@ -330,7 +331,7 @@ def render_sidebar_cards():
 
             <div class="card side-card about-card" id="about">
               <div class="card-title side-title">[[bulb]] About This App</div>
-              <p class="about-text">Nigerian News Classifier uses machine learning to automatically classify
+              <p class="about-text">Nigerian News Classifier AI uses machine learning to automatically classify
               news articles into Politics, Sports, and Business. Powered by TF-IDF and Support Vector Machine (SVM),
               it makes news categorisation simple, fast, and efficient.</p>
               <hr class="about-divider">
@@ -351,7 +352,7 @@ def render_sidebar_cards():
 
 def render_footer():
     st.markdown(
-        '<div class="footer" id="contact">Nigerian News Classifier'
+        '<div class="footer" id="contact">Nigerian News Classifier AI'
         '<span class="sep">|</span>Built with Streamlit ❤️</div>',
         unsafe_allow_html=True,
     )
