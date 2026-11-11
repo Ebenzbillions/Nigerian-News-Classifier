@@ -1,5 +1,5 @@
 """
-Nigerian News Classifier AI
+Nigerian News Classifier
 ---------------------------
 A Streamlit web app that classifies a news article as
 Business, Politics or Sports using a saved TF-IDF vectorizer + SVM model.
@@ -331,7 +331,7 @@ def render_sidebar_cards():
 
             <div class="card side-card about-card" id="about">
               <div class="card-title side-title">[[bulb]] About This App</div>
-              <p class="about-text">Nigerian News Classifier AI uses machine learning to automatically classify
+              <p class="about-text">Nigerian News Classifier uses machine learning to automatically classify
               news articles into Politics, Sports, and Business. Powered by TF-IDF and Support Vector Machine (SVM),
               it makes news categorisation simple, fast, and efficient.</p>
               <hr class="about-divider">
@@ -352,8 +352,8 @@ def render_sidebar_cards():
 
 def render_footer():
     st.markdown(
-        '<div class="footer" id="contact">Nigerian News Classifier AI'
-        '<span class="sep">|</span>Built with Streamlit ❤️</div>',
+        '<div class="footer" id="contact">Nigerian News Classifier'
+        '<span class="sep">|</span>Built with Streamlit </div>',
         unsafe_allow_html=True,
     )
 
