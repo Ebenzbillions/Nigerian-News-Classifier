@@ -26,7 +26,7 @@ FOOTER_IMAGE = BASE_DIR / "assets" / "footer.png"  # image card in the sidebar
 FAVICON = BASE_DIR / "assets" / "favicon.png"      # icon in the browser tab
 
 st.set_page_config(
-    page_title="Nigerian News Classifier AI",
+    page_title="Nigerian News Classifier",
     page_icon=FAVICON,
     layout="wide",
     initial_sidebar_state="collapsed",
