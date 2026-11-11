@@ -178,7 +178,7 @@ def render_navbar_and_hero():
               <div class="brand">
                 <div class="brand-logo flag-logo"></div>
                 <div>
-                  <div class="brand-title">NIGERIAN NEWS CLASSIFIER AI</div>
+                  <div class="brand-title">NIGERIAN NEWS CLASSIFIER</div>
                   <div class="brand-sub">Automatic Classification of News Articles (Politics, Sports, Business)</div>
                 </div>
               </div>
